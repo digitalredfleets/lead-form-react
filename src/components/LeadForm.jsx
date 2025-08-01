@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const LeadForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    
     name: '',
     phone: '',
     email: '',
@@ -148,7 +150,8 @@ const handleSubmit = async (e) => {
 
     setTimeout(() => {
       setIsSubmitted(false);
-    }, 3000);
+      navigate('/thank-you');
+    }, 2000);
   } catch (error) {
     alert("Something went wrong. Please try again.");
   } finally {
